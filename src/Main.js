@@ -32,23 +32,19 @@ function Main(props) {
             })
         )
     }
-
-    const main = props.dataBase.map((item, id)=> {
-        return (
-            <div key={id} className={`main ${item.favorite ? "favorite" : ""}`}>
-                <button className="star" onClick={() => handleStar(id)}>{item.star}</button>
-                <div className="name">{item.name}</div>
-                <input type="checkbox" checked={item.done} onChange={() => handleChange(id)}/>
-                <button className="main-button" onClick={() => handleDeleteBut(id)}>{item.delete}️</button>
-            </div>
-        )
-    })
     return (
         <div>
-            {main}
+            {props.dataBase.map((item, id)=> {
+                return (
+                    <div key={id} className={`main ${item.favorite ? "favorite" : ""}`}>
+                        <button className="star" onClick={() => handleStar(id)}>{item.star}</button>
+                        <div className="name">{item.name}</div>
+                        <input type="checkbox" checked={item.done} onChange={() => handleChange(id)}/>
+                        <button className="main-button" onClick={() => handleDeleteBut(id)}>{item.delete}️</button>
+                    </div>
+                )
+            })}
             <Erase
-                main={main}
-                dataBase={props.dataBase}
                 setDataBase={props.setDataBase}
             />
         </div>
