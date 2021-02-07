@@ -3,7 +3,6 @@ import Header from "./Header";
 import Form from "./Form";
 import Main from "./Main";
 import Style from "./Style.css"
-import Checkmark from "./Checkmark";
 
 
 function App(props) {
@@ -11,17 +10,23 @@ function App(props) {
         {
             name: "Дочитать 'Книжный вор'",
             favorite: false,
-            done: false
+            done: false,
+            star: "★",
+            delete: "❌"
         },
         {
             name: "Помыть посуду",
             favorite: false,
-            done: false
+            done: false,
+            star: "★",
+            delete: "❌"
         },
         {
             name: "Сделать домашку по программированию",
             favorite: false,
-            done: false
+            done: false,
+            star: "★",
+            delete: "❌"
         },
     ]);
     const [text, setText] = useState('')

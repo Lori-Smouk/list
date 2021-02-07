@@ -1,4 +1,4 @@
-.header, .main, .form{
+.header, .main, .form, .footer, .empty{
     width: 550px;
     margin: auto;
     display: flex;
@@ -12,6 +12,7 @@
     background-color: #6a87b5;
     color: #fff;
     border-radius: 5px;
+    outline: none;
 }
 .header{
     border-bottom: 1px solid #e7e3e3;
@@ -51,4 +52,15 @@
 }
 .favorite .star{
     color: #FFD231;
+}
+.footer{
+    margin-top: 20px;
+}
+.empty{
+    color: gray;
+    opacity: 0.5;
+    height: 300px;
+}
+.name .empty{
+    border: none;
 }

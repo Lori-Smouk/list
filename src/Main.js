@@ -1,4 +1,5 @@
 import React from 'react';
+import Erase from "./Erase";
 
 function Main(props) {
     function handleStar(index){
@@ -27,21 +28,29 @@ function Main(props) {
                         done: !item.done
                     })
                 }
+                return item;
             })
         )
     }
+
+    const main = props.dataBase.map((item, id)=> {
+        return (
+            <div key={id} className={`main ${item.favorite ? "favorite" : ""}`}>
+                <button className="star" onClick={() => handleStar(id)}>{item.star}</button>
+                <div className="name">{item.name}</div>
+                <input type="checkbox" checked={item.done} onChange={() => handleChange(id)}/>
+                <button className="main-button" onClick={() => handleDeleteBut(id)}>{item.delete}️</button>
+            </div>
+        )
+    })
     return (
         <div>
-            {props.dataBase.map((item, id)=> {
-                    return (
-                        <div key={id} className={`main ${item.favorite ? "favorite" : ""}`}>
-                            <button className="star" onClick={() => handleStar(id)}>★</button>
-                            <div className="name">{item.name}</div>
-                            <input type="checkbox" checked={item.done} onChange={() => handleChange(id)}/>
-                            <button className="main-button" onClick={() => handleDeleteBut(id)}>❌️</button>
-                        </div>
-                    )
-                })}
+            {main}
+            <Erase
+                main={main}
+                dataBase={props.dataBase}
+                setDataBase={props.setDataBase}
+            />
         </div>
     );
 }

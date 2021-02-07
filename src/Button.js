@@ -7,6 +7,8 @@ function Button(props) {
                 [{
                     name: props.text,
                     favorite: false,
+                    star: "★",
+                    delete: "❌",
                     done: props.check
                 }, ...props.dataBase])
         }
